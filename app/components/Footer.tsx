@@ -1,6 +1,6 @@
 // footer.tsx
 import Link from "next/link";
-import Image from "next/image";
+import Image from "./CustomImage";
 
 export default function Footer() {
   return (

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "../components/CustomImage";
 import React from "react";
 
 type FeatureRow = {

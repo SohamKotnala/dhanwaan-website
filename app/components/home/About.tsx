@@ -1,5 +1,5 @@
 // app/components/About.tsx
-import Image from "next/image";
+import Image from "../CustomImage";
 
 export default function About() {
   return (

@@ -1,5 +1,5 @@
 // app/components/Hero.tsx
-import Image from "next/image";
+import Image from "../CustomImage";
 import StatCard from "./StatCard";
 
 export default function Hero() {

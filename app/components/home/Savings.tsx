@@ -1,5 +1,5 @@
 // app/components/Savings.tsx
-import Image from "next/image";
+import Image from "../CustomImage";
 import Link from "next/link";
 
 export default function Savings() {
