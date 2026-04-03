@@ -1,0 +1,15 @@
+/* app/globals.css */
+@import "tailwindcss";
+
+/* ===== custom utilities (after Tailwind import) ===== */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
+
+.animate-float     { animation: float 3.8s ease-in-out infinite; }
+.animate-float-slow{ animation: float-slow 5.2s ease-in-out infinite; }

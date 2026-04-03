@@ -1,0 +1,16 @@
+ Volume in drive D is New Volume
+ Volume Serial Number is 2C4D-5B14
+
+ Directory of D:\dhanwaan-website\public\how it works
+
+18-10-2025  11:31    <DIR>          .
+18-10-2025  11:13    <DIR>          ..
+18-10-2025  11:31                 0 list.txt
+16-10-2025  12:36         4,706,413 Step 1.png
+16-10-2025  12:37        10,228,854 Step 2.png
+16-10-2025  12:36         1,487,825 Step 3.png
+18-10-2025  11:28           112,592 Step 4.png
+18-10-2025  11:14         1,724,585 Step 5.png
+16-10-2025  12:37        32,345,545 Step 6.png
+               7 File(s)     50,605,814 bytes
+               2 Dir(s)  42,534,744,064 bytes free

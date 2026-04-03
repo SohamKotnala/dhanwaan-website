@@ -1,0 +1,16 @@
+ Volume in drive D is New Volume
+ Volume Serial Number is 2C4D-5B14
+
+ Directory of D:\dhanwaan-website\app
+
+15-10-2025  20:00    <DIR>          .
+21-09-2025  13:18    <DIR>          ..
+15-10-2025  19:06    <DIR>          components
+21-09-2025  00:55            25,931 favicon.ico
+15-10-2025  20:00                 0 filelist.txt
+21-09-2025  10:32               462 globals.css
+21-09-2025  10:04               323 layout.tsx
+21-09-2025  00:55             2,731 page.module.css
+21-09-2025  10:59               696 page.tsx
+               6 File(s)         30,143 bytes
+               3 Dir(s)  42,610,884,608 bytes free

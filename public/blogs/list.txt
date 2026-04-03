@@ -1,0 +1,14 @@
+ Volume in drive D is New Volume
+ Volume Serial Number is 2C4D-5B14
+
+ Directory of D:\dhanwaan-website\public\blogs
+
+18-10-2025  10:16    <DIR>          .
+18-10-2025  10:10    <DIR>          ..
+18-10-2025  10:10             9,928 1[1].webp
+15-10-2025  21:22            32,290 2.webp
+15-10-2025  21:22            18,776 3.webp
+15-10-2025  21:22            30,026 4.webp
+18-10-2025  10:16                 0 list.txt
+               5 File(s)         91,020 bytes
+               2 Dir(s)  42,549,612,544 bytes free
