@@ -1,4 +1,4 @@
-import Image from "../components/CustomImage";
+import Image from "../CustomImage";
 import Link from "next/link";
 
 export default function FeaturesCTA() {
