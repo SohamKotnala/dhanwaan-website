@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // 🔑 Tells Next.js to look for files inside your GitHub Pages sub-folder
+  basePath: "/dhanwaan-website",
+
   // Generate a fully static site to the /out folder
   output: "export",
 
