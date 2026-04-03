@@ -16,8 +16,8 @@ export default function Nav() {
           {/* Logo → Home */}
           <Link href="/" className="flex items-center">
             <Image
-              src="/Dhan Logo Final.png"
-              alt="Dhanwaan Logo"
+              src="/DhanLogoFinal.png"
+              alt="DhanwaanLogo"
               width={100}
               height={100}
               className="cursor-pointer w-[90px] h-auto sm:w-[100px]"

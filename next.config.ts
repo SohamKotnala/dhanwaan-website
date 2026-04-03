@@ -1,8 +1,11 @@
 import type { NextConfig } from "next";
 
+// Check if we are running the build on GitHub (production)
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig: NextConfig = {
-  // 🔑 Tells Next.js to look for files inside your GitHub Pages sub-folder
-  basePath: "/dhanwaan-website",
+  // Use the folder name on GitHub, but leave it blank for local testing
+  basePath: isProd ? "/dhanwaan-website" : "",
 
   // Generate a fully static site to the /out folder
   output: "export",
@@ -12,8 +15,7 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
 
-  // 🔑 Hostinger/Apache serves folder-based routes best with a trailing slash
-  // This makes /privacy-policy resolve to /privacy-policy/index.html
+  // Hostinger/Apache serves folder-based routes best with a trailing slash
   trailingSlash: true,
 };
 
