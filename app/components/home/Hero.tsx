@@ -15,7 +15,7 @@ export default function Hero() {
         {/* Left copy */}
         <div className="text-white">
           <p className="mb-3 inline-block rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs tracking-wide backdrop-blur">
-            Uttarakhand’s First Fintech App
+            Uttarakhand’s First Fintech App!
           </p>
 
           <h1 className="text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
