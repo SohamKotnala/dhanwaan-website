@@ -1,6 +1,28 @@
 import React from "react";
 
-export default function BlogHero() {
+export type HeroPost = {
+  title: string;
+  desc: string;
+  img: string;
+  date: string;
+  read: string;
+  slug: string;
+};
+
+export type SmallPost = {
+  id: string | number;
+  title: string;
+  date: string;
+  img: string;
+  slug: string;
+};
+
+type BlogHeroProps = {
+  featured: HeroPost;
+  sidePosts: SmallPost[];
+};
+
+export default function BlogHero({ featured, sidePosts }: BlogHeroProps) {
   return (
     <section className="w-full bg-[#EBFFF2]">
       <div className="max-w-6xl mx-auto px-6 py-10 md:py-12">
@@ -10,25 +32,23 @@ export default function BlogHero() {
             <div className="overflow-hidden rounded-2xl border border-gray-200">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="/blogs/1%5B1%5D.webp" // D:\dhanwaan-website\public\blogs\1[1].webp
-                alt="Featured article"
+                src={featured.img}
+                alt={featured.title}
                 className="w-full aspect-[16/9] object-cover"
               />
             </div>
 
             <div className="mt-5">
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 leading-tight">
-                The Power of Daily Savings — One Habit That Changes Everything
+                {featured.title}
               </h1>
               <p className="mt-3 text-gray-600 max-w-3xl">
-                Small steps lead to big results. Learn how saving a little every
-                day through Dhanwaan builds consistency, discipline, and
-                long-term financial security.
+                {featured.desc}
               </p>
               <div className="mt-4 flex flex-wrap items-center gap-3 text-sm text-gray-500">
-                <span>January 23, 2025 · 7 min</span>
+                <span>{featured.date} · {featured.read}</span>
                 <a
-                  href="#"
+                  href={`/blogs/${featured.slug}`}
                   className="inline-flex items-center rounded-lg border border-gray-300 px-3 py-1.5 text-gray-800 hover:bg-white/60"
                 >
                   Read More
@@ -37,43 +57,14 @@ export default function BlogHero() {
             </div>
           </article>
 
-          {/* Right: Referral card + Small list */}
+          {/* Right: Small list */}
           <aside className="md:col-span-4 flex flex-col gap-4">
-            {/* Referral / Promo Card */}
-            <div className="rounded-2xl p-6 text-white bg-gradient-to-br from-purple-600 to-indigo-500 shadow-sm">
-              <p className="text-sm/5 opacity-90">Refer Your Friend</p>
-              <h3 className="mt-1 text-2xl font-semibold">Earn Points</h3>
-              <p className="mt-1 text-sm/6 opacity-90">Redeem Gold</p>
-              <button className="mt-4 inline-flex items-center rounded-lg bg-white/90 text-gray-900 px-4 py-2 font-medium hover:bg-white">
-                Save Today
-              </button>
-            </div>
-
             {/* Small posts list */}
             <div className="space-y-3">
-              {[
-                {
-                  id: 1,
-                  img: "/blogs/2.webp",
-                  title: "Empowering Small Businesses with Smart …",
-                  date: "January 23, 2025 · 6 min",
-                },
-                {
-                  id: 2,
-                  img: "/blogs/3.webp",
-                  title: "How e-Mandate Savings Simplify Your …",
-                  date: "January 23, 2025 · 7 min",
-                },
-                {
-                  id: 3,
-                  img: "/blogs/4.webp",
-                  title: "The Rise of Fintech in Rural India: Changing …",
-                  date: "January 23, 2025 · 10 min",
-                },
-              ].map((p) => (
+              {sidePosts.map((p) => (
                 <a
                   key={p.id}
-                  href="#"
+                  href={`/blogs/${p.slug}`}
                   className="group grid grid-cols-[96px_1fr] gap-3 rounded-xl border border-gray-200 p-2 hover:bg-white"
                 >
                   {/* eslint-disable-next-line @next/next/no-img-element */}

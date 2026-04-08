@@ -9,12 +9,18 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@portabletext/react": "^6.0.3",
+    "@sanity/image-url": "^2.1.1",
+    "@sanity/vision": "^5.20.0",
     "@tailwindcss/postcss": "^4.1.13",
     "autoprefixer": "^10.4.21",
-    "next": "15.5.3",
+    "next": "^16.2.2",
+    "next-sanity": "^12.2.2",
     "postcss": "^8.5.6",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "sanity": "^5.20.0",
+    "styled-components": "^6.3.12",
     "tailwindcss": "^4.1.13"
   },
   "devDependencies": {
