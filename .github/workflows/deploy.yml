@@ -13,15 +13,18 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: actions/checkout@v4
+        uses: actions/setup-node@v4 # FIXED: This was accidentally set to checkout@v4 before
         with:
-          node-version: '20' # Or your preferred version
+          node-version: '20'
 
       - name: Install Dependencies
         run: npm install
 
       - name: Build Website
-        run: npm run build # This triggers the 'export' you set up
+        run: npm run build
+        env: # ADDED: This passes your GitHub Secrets to the Sanity build
+          NEXT_PUBLIC_SANITY_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_SANITY_PROJECT_ID }}
+          NEXT_PUBLIC_SANITY_DATASET: ${{ secrets.NEXT_PUBLIC_SANITY_DATASET }}
 
       - name: Upload Build Folder
         uses: actions/upload-pages-artifact@v3
