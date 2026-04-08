@@ -16,6 +16,7 @@ export default function Footer() {
 
         {/* App store buttons */}
         <div className="flex gap-4 items-center">
+          {/* App Store (Dummy for now) */}
           <div className="relative w-[150px] h-[48px] sm:w-[170px] sm:h-[55px]">
             <Image
               src="/appstore.png"
@@ -25,7 +26,14 @@ export default function Footer() {
               sizes="(max-width: 640px) 150px, 170px"
             />
           </div>
-          <div className="relative w-[150px] h-[48px] sm:w-[170px] sm:h-[55px]">
+
+          {/* Google Play (Live Link) */}
+          <a 
+            href="https://play.google.com/store/apps/details?id=com.dhanwaan" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="relative w-[150px] h-[48px] sm:w-[170px] sm:h-[55px] transition-transform active:scale-95"
+          >
             <Image
               src="/playstore.png"
               alt="Google Play"
@@ -33,7 +41,7 @@ export default function Footer() {
               className="object-contain"
               sizes="(max-width: 640px) 150px, 170px"
             />
-          </div>
+          </a>
         </div>
 
         {/* Navigation links */}

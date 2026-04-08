@@ -1,11 +1,13 @@
 import React from "react";
 
 export default function HowItWorksHero() {
+  // Using the same embed URL for the YouTube video
+  const embedUrl = "https://www.youtube.com/embed/W_3irUPdcI0";
+
   return (
     <section
       className="relative overflow-hidden"
       style={{
-        // green gradient background
         backgroundImage:
           "linear-gradient(135deg, #0f5132 0%, #1f7151 50%, #2a9d6f 100%)",
       }}
@@ -24,46 +26,31 @@ export default function HowItWorksHero() {
 
       <div className="relative max-w-6xl mx-auto px-6 py-16 md:py-20 text-center text-white">
         {/* Eyebrow/Title */}
-        <h1 className="text-3xl md:text-5xl font-extrabold tracking-widest uppercase">
+        <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight uppercase">
           How It Works
         </h1>
-        <p className="mt-3 md:mt-4 text-sm md:text-base text-white/85">
-          Saving with Dhanwaan is simple, secure, and fully digital.
+        <p className="mt-4 text-lg md:text-xl text-white/90 max-w-2xl mx-auto">
+          Saving with Dhanwaan is simple, secure, and fully digital. Watch the guide below.
         </p>
 
-        {/* Video card */}
-        <div className="mt-8 md:mt-12 flex justify-center">
-          <button
-            type="button"
-            aria-label="Play How It Works video"
-            className="group relative w-full max-w-3xl overflow-hidden rounded-3xl shadow-xl ring-1 ring-white/20"
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/how-hero.jpg" // put a blurred thumbnail in /public/how-hero.jpg
-              alt="How It Works preview"
-              className="h-[200px] w-full object-cover md:h-[320px]"
-            />
-
-            {/* frosted overlay for the rounded corners look */}
-            <div className="absolute inset-0 bg-white/5 backdrop-blur-[1px]" />
-
-            {/* Play button */}
-            <span className="absolute inset-0 grid place-items-center">
-              <span className="grid place-items-center h-16 w-16 md:h-20 md:w-20 rounded-full bg-white/90 text-emerald-800 shadow-lg transition group-hover:scale-105">
-                <svg
-                  width="28"
-                  height="28"
-                  viewBox="0 0 24 24"
-                  fill="currentColor"
-                  aria-hidden
-                >
-                  <path d="M8 5v14l11-7L8 5z" />
-                </svg>
-              </span>
-            </span>
-          </button>
+        {/* WORKING VIDEO PLAYER */}
+        <div className="mt-10 md:mt-16 flex justify-center">
+          <div className="w-full max-w-4xl aspect-video overflow-hidden rounded-3xl shadow-2xl ring-1 ring-white/20 bg-black">
+            <iframe
+              className="w-full h-full"
+              src={embedUrl}
+              title="Dhanwaan - How it Works"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            ></iframe>
+          </div>
         </div>
+        
+        {/* Bottom indicator */}
+        <p className="mt-8 text-sm font-medium text-emerald-200/80 animate-pulse">
+          &darr; Scroll down to see the steps &darr;
+        </p>
       </div>
     </section>
   );
