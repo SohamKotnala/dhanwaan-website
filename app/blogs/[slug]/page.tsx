@@ -9,14 +9,26 @@ import Image from "next/image";
 // 1. Force strict static generation for GitHub Pages
 export const dynamicParams = false;
 
-// 2. Generate Static Params for GitHub Pages / Static Export
+// 2. Generate Static Params with Error Catching!
 export async function generateStaticParams() {
-  const query = `*[_type == "post"]{ "slug": slug.current }`;
-  const posts = await client.fetch(query);
+  try {
+    const query = `*[_type == "post"]{ "slug": slug.current }`;
+    const posts = await client.fetch(query);
 
-  return posts.map((post: { slug: string }) => ({
-    slug: post.slug,
-  }));
+    // If Sanity is empty or returns nothing, safely return an empty array
+    if (!posts || posts.length === 0) {
+      console.warn("⚠️ WARNING: No blog posts found in Sanity during build.");
+      return [];
+    }
+
+    return posts.map((post: { slug: string }) => ({
+      slug: post.slug,
+    }));
+  } catch (error) {
+    // This will print the REAL error in your GitHub Actions logs!
+    console.error("🚨 SANITY FETCH ERROR during build:", error);
+    return []; 
+  }
 }
 
 // 3. Main Page Component
