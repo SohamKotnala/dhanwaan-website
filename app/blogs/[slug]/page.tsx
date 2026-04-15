@@ -4,9 +4,12 @@ import Footer from "../../components/Footer";
 import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
-import Image from "next/image"; // Added Import
+import Image from "next/image";
 
-// 1. Generate Static Params for GitHub Pages / Static Export
+// 1. Force strict static generation for GitHub Pages
+export const dynamicParams = false;
+
+// 2. Generate Static Params for GitHub Pages / Static Export
 export async function generateStaticParams() {
   const query = `*[_type == "post"]{ "slug": slug.current }`;
   const posts = await client.fetch(query);
@@ -16,7 +19,7 @@ export async function generateStaticParams() {
   }));
 }
 
-// 2. Main Page Component
+// 3. Main Page Component
 export default async function SingleBlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
 
