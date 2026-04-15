@@ -1,8 +1,9 @@
 import React from "react";
+import { YouTubeEmbed } from "@next/third-parties/google"; // Added import
 
 export default function HowItWorksHero() {
-  // Using the same embed URL for the YouTube video
-  const embedUrl = "https://www.youtube.com/embed/W_3irUPdcI0";
+  // The Next.js component only needs the ID, not the full URL
+  const videoId = "W_3irUPdcI0";
 
   return (
     <section
@@ -33,17 +34,13 @@ export default function HowItWorksHero() {
           Saving with Dhanwaan is simple, secure, and fully digital. Watch the guide below.
         </p>
 
-        {/* WORKING VIDEO PLAYER */}
+        {/* WORKING VIDEO PLAYER (Optimized Facade) */}
         <div className="mt-10 md:mt-16 flex justify-center">
           <div className="w-full max-w-4xl aspect-video overflow-hidden rounded-3xl shadow-2xl ring-1 ring-white/20 bg-black">
-            <iframe
-              className="w-full h-full"
-              src={embedUrl}
-              title="Dhanwaan - How it Works"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            ></iframe>
+            <YouTubeEmbed 
+              videoid={videoId} 
+              params="controls=1" 
+            />
           </div>
         </div>
         

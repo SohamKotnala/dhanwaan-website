@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image"; // Added Import
 
 type Step = {
   n: number;
@@ -127,20 +128,24 @@ function StepRow(s: Step) {
                 backgroundSize: "44px 44px,44px 44px",
               }}
             />
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={s.img}
-              alt={s.title}
-              className="relative z-[1] rounded-2xl w-full h-[260px] object-contain bg-white/8"
-            />
+            <div className="relative z-[1] w-full h-[260px]">
+              <Image
+                src={s.img}
+                alt={s.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-contain rounded-2xl bg-white/8"
+              />
+            </div>
           </div>
         ) : (
-          <div className="relative w-full max-w-md rounded-3xl overflow-hidden shadow-xl ring-1 ring-black/5">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+          <div className="relative w-full h-[260px] max-w-md rounded-3xl overflow-hidden shadow-xl ring-1 ring-black/5">
+            <Image
               src={s.img}
               alt={s.title}
-              className="w-full h-[260px] object-cover"
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              className="object-cover"
             />
           </div>
         )}

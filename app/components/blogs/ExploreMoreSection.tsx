@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image"; // Added Import
 
 export type ExplorePost = {
   id?: string | number;
@@ -21,13 +22,14 @@ export default function ExploreMoreSection({ articles }: { articles: ExplorePost
             <a
               key={article.id || idx}
               href={`/blogs/${article.slug}`}
-              className="relative group rounded-2xl overflow-hidden shadow-lg"
+              className="relative block group rounded-2xl overflow-hidden shadow-lg h-[240px] md:h-[280px]"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src={article.img}
                 alt={article.title}
-                className="w-full h-[240px] md:h-[280px] object-cover transition-transform duration-300 group-hover:scale-[1.02]"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-5 md:p-6 text-white">

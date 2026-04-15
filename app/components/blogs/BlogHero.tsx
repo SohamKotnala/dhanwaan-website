@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image"; // Added Import
 
 export type HeroPost = {
   title: string;
@@ -29,12 +30,14 @@ export default function BlogHero({ featured, sidePosts }: BlogHeroProps) {
         <div className="grid md:grid-cols-12 gap-6 md:gap-8">
           {/* Left: Featured Article */}
           <article className="md:col-span-8">
-            <div className="overflow-hidden rounded-2xl border border-gray-200">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+            <div className="relative overflow-hidden rounded-2xl border border-gray-200 w-full aspect-[16/9]">
+              <Image
                 src={featured.img}
                 alt={featured.title}
-                className="w-full aspect-[16/9] object-cover"
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 66vw"
+                className="object-cover"
               />
             </div>
 
@@ -59,7 +62,6 @@ export default function BlogHero({ featured, sidePosts }: BlogHeroProps) {
 
           {/* Right: Small list */}
           <aside className="md:col-span-4 flex flex-col gap-4">
-            {/* Small posts list */}
             <div className="space-y-3">
               {sidePosts.map((p) => (
                 <a
@@ -67,12 +69,15 @@ export default function BlogHero({ featured, sidePosts }: BlogHeroProps) {
                   href={`/blogs/${p.slug}`}
                   className="group grid grid-cols-[96px_1fr] gap-3 rounded-xl border border-gray-200 p-2 hover:bg-white"
                 >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={p.img}
-                    alt={p.title}
-                    className="h-24 w-24 rounded-lg object-cover"
-                  />
+                  <div className="relative h-24 w-24 shrink-0 rounded-lg overflow-hidden">
+                    <Image
+                      src={p.img}
+                      alt={p.title}
+                      fill
+                      sizes="96px"
+                      className="object-cover"
+                    />
+                  </div>
                   <div className="flex flex-col justify-between">
                     <div>
                       <h4 className="line-clamp-2 font-semibold text-gray-900 group-hover:underline">

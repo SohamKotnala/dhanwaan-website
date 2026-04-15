@@ -1,25 +1,21 @@
-// app/components/HowToUse.tsx
 import React from "react";
+import { YouTubeEmbed } from "@next/third-parties/google"; // Added import
 
 export default function HowToUse() {
-  // We use the 'embed' version of the URL for in-page playback
-  const embedUrl = "https://www.youtube.com/embed/W_3irUPdcI0";
+  // The Next.js component only needs the ID, not the full URL
+  const videoId = "W_3irUPdcI0";
 
   return (
     <section className="bg-gradient-to-r from-emerald-900 to-emerald-700 py-16 px-4">
       <div className="mx-auto max-w-5xl">
         <div className="flex flex-col items-center justify-between gap-8 rounded-2xl bg-emerald-800/40 p-6 shadow-lg md:flex-row md:gap-12">
           
-          {/* THE VIDEO PLAYER */}
+          {/* THE VIDEO PLAYER (Optimized Facade) */}
           <div className="w-full max-w-md overflow-hidden rounded-xl bg-black aspect-video shadow-2xl ring-1 ring-white/10">
-            <iframe
-              className="w-full h-full"
-              src={embedUrl}
-              title="How to use Dhanwaan"
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            ></iframe>
+            <YouTubeEmbed 
+              videoid={videoId} 
+              params="controls=1" 
+            />
           </div>
 
           {/* Text Content */}

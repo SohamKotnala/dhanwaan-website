@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image"; // Added Import
 
 export type Article = {
   id: string | number;
@@ -13,8 +14,15 @@ export type Article = {
 function ArticleCard({ a }: { a: Article }) {
   return (
     <article className="border border-gray-200 rounded-2xl overflow-hidden bg-white shadow-sm hover:shadow-md transition">
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img src={a.img} alt={a.title} className="w-full h-52 object-cover" />
+      <div className="relative w-full h-52">
+        <Image 
+          src={a.img} 
+          alt={a.title} 
+          fill 
+          sizes="(max-width: 768px) 100vw, 33vw"
+          className="object-cover" 
+        />
+      </div>
       <div className="p-5">
         <h3 className="text-lg font-semibold leading-snug">{a.title}</h3>
         <p className="mt-2 text-sm text-gray-600 line-clamp-2">{a.desc}</p>

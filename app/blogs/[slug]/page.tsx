@@ -4,6 +4,7 @@ import Footer from "../../components/Footer";
 import Link from "next/link";
 import { client } from "@/sanity/lib/client";
 import { PortableText } from "@portabletext/react";
+import Image from "next/image"; // Added Import
 
 // 1. Generate Static Params for GitHub Pages / Static Export
 export async function generateStaticParams() {
@@ -84,14 +85,16 @@ export default async function SingleBlogPost({ params }: { params: Promise<{ slu
       {/* MAIN CONTENT OVERLAP SECTION */}
       <section className="max-w-4xl mx-auto px-6 -mt-20 relative z-10 pb-24">
         
-        {/* Featured Image (Floats over the header line) */}
+        {/* Featured Image (Optimized) */}
         {post.img && (
-          <div className="rounded-2xl overflow-hidden shadow-2xl shadow-slate-200/50 ring-1 ring-slate-100 bg-white mb-10">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img 
+          <div className="relative w-full h-[300px] md:h-[550px] rounded-2xl overflow-hidden shadow-2xl shadow-slate-200/50 ring-1 ring-slate-100 bg-white mb-10">
+            <Image 
               src={post.img} 
               alt={post.title} 
-              className="w-full h-auto max-h-[550px] object-cover" 
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover" 
             />
           </div>
         )}
@@ -104,13 +107,10 @@ export default async function SingleBlogPost({ params }: { params: Promise<{ slu
                 value={post.content} 
                 components={{
                   block: {
-                    // Premium Typography Styling for standard paragraphs
                     normal: ({children}) => <p className="mb-7 leading-[1.8] text-slate-700">{children}</p>,
-                    // Beautiful Headings
                     h1: ({children}) => <h2 className="text-3xl font-extrabold text-slate-900 mt-14 mb-6 tracking-tight">{children}</h2>,
                     h2: ({children}) => <h2 className="text-2xl font-bold text-slate-900 mt-12 mb-5 tracking-tight">{children}</h2>,
                     h3: ({children}) => <h3 className="text-xl font-bold text-slate-900 mt-8 mb-4">{children}</h3>,
-                    // Elegant Blockquotes
                     blockquote: ({children}) => (
                       <blockquote className="border-l-4 border-emerald-500 bg-emerald-50/50 p-6 rounded-r-xl my-8 shadow-sm">
                         <p className="italic text-slate-700 text-xl leading-relaxed m-0">{children}</p>
@@ -118,12 +118,10 @@ export default async function SingleBlogPost({ params }: { params: Promise<{ slu
                     ),
                   },
                   list: {
-                    // Custom styled bullet points and numbered lists
                     bullet: ({children}) => <ul className="list-disc pl-6 mb-8 space-y-3 text-slate-700 marker:text-emerald-500">{children}</ul>,
                     number: ({children}) => <ol className="list-decimal pl-6 mb-8 space-y-3 text-slate-700 marker:text-emerald-500 font-medium">{children}</ol>,
                   },
                   marks: {
-                    // Styling for bold text and links
                     strong: ({children}) => <strong className="font-semibold text-slate-900">{children}</strong>,
                     link: ({value, children}) => (
                       <a href={value?.href} className="text-emerald-600 underline decoration-emerald-200 underline-offset-4 hover:decoration-emerald-600 transition-colors">
@@ -146,7 +144,6 @@ export default async function SingleBlogPost({ params }: { params: Promise<{ slu
               Thanks for reading
             </p>
             <div className="flex gap-4">
-              {/* Dummy share buttons just for visual polish */}
               <button className="text-slate-400 hover:text-emerald-600 transition-colors text-sm font-medium">Share</button>
               <button className="text-slate-400 hover:text-emerald-600 transition-colors text-sm font-medium">Tweet</button>
             </div>
