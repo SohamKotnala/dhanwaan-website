@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main  # This means it runs every time you "push" code to the main branch
+  repository_dispatch:
+    types: [sanity-publish] # This listens for the Sanity webhook!
 
 jobs:
   build-and-deploy:
