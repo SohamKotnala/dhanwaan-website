@@ -70,6 +70,8 @@ export default function Footer() {
           <Link href="/cookies-policy">Cookies Policy</Link>
           <Link href="/copyright-policy">Copyright Policy</Link>
           <Link href="/data-policy">Data Policy</Link>
+          {/* Add the new link here */}
+          <Link href="/account-deletion-policy">Account Deletion Policy</Link>
         </div>
       </div>
     </footer>
